@@ -1,5 +1,7 @@
 ActiveAdmin.register Book do
 
+ permit_params :title, :publish_year, :pages, :description, :image, :author_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
