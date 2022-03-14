@@ -1,0 +1,83 @@
+<% was_validated = author.errors.any? %>
+
+<%= form_with(model: author, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = author.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% author.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for bio start -->
+  <div class="form-group">
+    <% bio_class = "form-control" %>
+    <% bio_was_invalid = author.errors.include?(:bio) %>
+
+    <% if was_validated %>
+      <% if bio_was_invalid %>
+        <% bio_class << " is-invalid" %>
+      <% else %>
+        <% bio_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :bio %>
+    <!-- Input for bio start -->
+    <%= f.text_area :bio, class: bio_class, placeholder: "Enter bio" %>
+    <!-- Input for bio end -->
+    <% if bio_was_invalid %>
+      <% author.errors.full_messages_for(:bio).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for bio end -->
+  <!-- Label and input for book_count start -->
+  <div class="form-group">
+    <% book_count_class = "form-control" %>
+    <% book_count_was_invalid = author.errors.include?(:book_count) %>
+
+    <% if was_validated %>
+      <% if book_count_was_invalid %>
+        <% book_count_class << " is-invalid" %>
+      <% else %>
+        <% book_count_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :book_count %>
+    <!-- Input for book_count start -->
+    <%= f.number_field :book_count, class: book_count_class, placeholder: "Enter book count" %>
+    <!-- Input for book_count end -->
+    <% if book_count_was_invalid %>
+      <% author.errors.full_messages_for(:book_count).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for book_count end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
