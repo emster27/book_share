@@ -1,6 +1,8 @@
 class Book < ApplicationRecord
   # Direct associations
 
+  belongs_to :author
+
   has_many   :reviews,
              :dependent => :destroy
 

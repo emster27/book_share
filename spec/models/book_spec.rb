@@ -4,6 +4,8 @@ RSpec.describe Book, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:author) }
+
     it { should have_many(:reviews) }
 
     end
