@@ -12,6 +12,8 @@ RSpec.describe Review, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_one(:author) }
+
     end
 
     describe "Validations" do

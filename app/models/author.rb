@@ -6,6 +6,10 @@ class Author < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :reviews,
+             :through => :books,
+             :source => :reviews
+
   # Validations
 
   validates :book_count, :numericality => { :greater_than_or_equal_to => 1 }

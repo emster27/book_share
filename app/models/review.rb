@@ -7,6 +7,10 @@ class Review < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :author,
+             :through => :book,
+             :source => :author
+
   # Validations
 
   validates :book_id, :presence => true
