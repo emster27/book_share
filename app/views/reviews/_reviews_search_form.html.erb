@@ -2,15 +2,8 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
-    <%= f.label :rating, "Rating" %>
-    <div class="row">
-      <div class='col-md-6 mb-1'>
-        <%= f.text_field :rating_gteq, :class => "form-control", :placeholder => "Rating greater than or equal to" %>
-      </div>
-      <div class='col-md-6'>
-        <%= f.text_field :rating_lteq, :class => "form-control", :placeholder => "Rating less than or equal to" %>
-      </div>
-    </div>
+    <%= f.label :rating_cont, "Rating contains" %>
+    <%= f.text_field :rating_cont, :class => "form-control", :placeholder => "Rating contains" %>
   </div>
 
   <div class="form-group">
