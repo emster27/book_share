@@ -3,7 +3,8 @@ class BooksController < ApplicationController
 
   # GET /books
   def index
-    @books = Book.page(params[:page]).per(10)
+    @q = Book.ransack(params[:q])
+    @books = @q.result(:distinct => true).includes(:reviews, :author).page(params[:page]).per(10)
   end
 
   # GET /books/1
