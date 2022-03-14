@@ -5,6 +5,8 @@ class Review < ApplicationRecord
 
   # Validations
 
+  validates :book_id, :presence => true
+
   validates :rating, :presence => true
 
   validates :rating, :inclusion => { :in => [ "0", ".5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5" ]  }

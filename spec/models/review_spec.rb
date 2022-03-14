@@ -12,6 +12,8 @@ RSpec.describe Review, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:book_id) }
+
     it { should validate_presence_of(:rating) }
 
     it { should validate_inclusion_of(:rating).in_array([ "0", ".5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5" ]) }
