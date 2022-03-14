@@ -1,37 +1,19 @@
-<!-- Form review start -->
 <%= form_with(model: @review, local: true) do |f| %>
-<!-- Form review end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for book_id start -->
-  <!-- Input for book_id start -->
   <%= f.hidden_field :book_id, value: @book.id %>
-  <!-- Input for book_id end -->
-  <!-- Label and input for book_id end -->
 
-  <!-- Label and input for review start -->
   <div class="form-group">
     <%= f.label :review %>
-    <!-- Input for review start -->
     <%= f.text_area :review, rows: "3", class: "form-control" %>
-    <!-- Input for review end -->
   </div>
-  <!-- Label and input for review end -->
 
-  <!-- Label and input for rating start -->
   <div class="form-group">
     <%= f.label :rating %>
 
-    <!-- Input for rating start -->
     <%= f.text_field :rating, class: "form-control" %>
-    <!-- Input for rating end -->
   </div>
-  <!-- Label and input for rating end -->
 
   <%= f.submit "Create review", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

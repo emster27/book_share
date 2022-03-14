@@ -1,12 +1,7 @@
 <% was_validated = review.errors.any? %>
 
 <%= form_with(model: review, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for book_id start -->
   <div class="form-group">
     <% book_class = "form-control" %>
     <% book_was_invalid = review.errors.include?(:book) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :book_id %>
-    <!-- Input for book_id start -->
     <%= f.collection_select :book_id, Book.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for book_id end -->
     <% if book_was_invalid %>
       <% review.errors.full_messages_for(:book).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for book_id end -->
-  <!-- Label and input for review start -->
   <div class="form-group">
     <% review_class = "form-control" %>
     <% review_was_invalid = review.errors.include?(:review) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :review %>
-    <!-- Input for review start -->
     <%= f.text_area :review, class: review_class, placeholder: "Enter review" %>
-    <!-- Input for review end -->
     <% if review_was_invalid %>
       <% review.errors.full_messages_for(:review).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for review end -->
-  <!-- Label and input for rating start -->
   <div class="form-group">
     <% rating_class = "form-control" %>
     <% rating_was_invalid = review.errors.include?(:rating) %>
@@ -72,9 +59,7 @@
     <% end %>
 
     <%= f.label :rating %>
-    <!-- Input for rating start -->
     <%= f.text_field :rating, class: rating_class, placeholder: "Enter rating" %>
-    <!-- Input for rating end -->
     <% if rating_was_invalid %>
       <% review.errors.full_messages_for(:rating).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -83,6 +68,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for rating end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
