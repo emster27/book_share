@@ -1,26 +1,20 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Book, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should belong_to(:author) }
 
     it { should have_many(:reviews) }
+  end
 
-    end
+  describe "InDirect Associations" do
+  end
 
-    describe "InDirect Associations" do
-
-    end
-
-    describe "Validations" do
-
+  describe "Validations" do
     it { should validate_presence_of(:description) }
 
     it { should validate_presence_of(:publish_year) }
 
     it { should validate_presence_of(:title) }
-
-    end
+  end
 end

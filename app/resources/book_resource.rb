@@ -16,5 +16,4 @@ class BookResource < ApplicationResource
   has_many   :reviews
 
   # Indirect associations
-
 end
