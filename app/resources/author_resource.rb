@@ -12,4 +12,12 @@ class AuthorResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :reviews do
+    assign_each do |author, reviews|
+      reviews.select do |r|
+        r.id.in?(author.reviews.map(&:id))
+      end
+    end
+  end
+
 end
