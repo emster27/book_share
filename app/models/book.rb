@@ -5,6 +5,8 @@ class Book < ApplicationRecord
 
   # Validations
 
+  validates :publish_year, :presence => true
+
   validates :title, :presence => true
 
   # Scopes
