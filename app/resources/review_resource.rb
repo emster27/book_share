@@ -5,7 +5,7 @@ class ReviewResource < ApplicationResource
   attribute :user_id, :integer
   attribute :book_id, :integer
   attribute :review, :string
-  attribute :rating, :float
+  attribute :rating, :string
 
   # Direct associations
 
